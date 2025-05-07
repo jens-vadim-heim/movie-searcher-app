@@ -1,5 +1,3 @@
-import fetchData from "./api/movie.js";
-
 // Main elements
 const box = document.querySelector(".fade-in-box");
 const form = document.querySelector("form");
@@ -26,8 +24,8 @@ const fetchMovieData = async (query) => {
   if (query === "") {
     return;
   } else {
-    const data = await fetchData(query);
-    console.log(data);
+    const response = await fetch(`/api/movie?title=${query}`);
+    const data = await response.json();
     if (data) {
       processData(data);
     } else {
