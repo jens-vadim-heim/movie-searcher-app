@@ -1,5 +1,5 @@
 const fetchData = async (query) => {
-  const apiUrl = `http://www.omdbapi.com/?apikey=${apiKey}&`;
+  const apiUrl = `http://www.omdbapi.com/?apikey=${process.env.API_KEY}&`;
 
   try {
     const response = await fetch(apiUrl + `t=${query}&plot=full`);
